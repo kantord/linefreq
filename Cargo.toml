@@ -2,6 +2,12 @@
 name = "linefreq"
 version = "0.1.0"
 edition = "2021"
+license = "MIT"
+description = "Count the frequency of each line in stdin"
+homepage = "https://github.com/kantord/linefreq"
+documentation = "https://github.com/kantord/linefreq"
+repository = "https://github.com/kantord/linefreq"
+readme = "README.md"
 
 [dependencies]
 clap = { version = "4.4.7", features = ["derive"] }
