@@ -18,17 +18,21 @@ fn main() {
     let args = Args::parse();
     let reader = stdin.lock();
     let mut counts: HashMap<String, u128> = HashMap::new();
+    let mut total_count: u128 = 0;
 
     for line in reader.lines() {
         let value = counts.entry(line.unwrap()).or_insert(0);
         *value += 1;
+        total_count += 1;
     }
 
-    for (key, value) in &counts {
-        if *value < args.minimum_count {
+    for (word, count) in &counts {
+        if *count < args.minimum_count {
             continue;
         }
 
-        println!("{}\t{}", key, value);
+        let frequency = *count as f64 / total_count as f64;
+
+        println!("{}\t{}\t{}", count, frequency, word);
     }
 }
